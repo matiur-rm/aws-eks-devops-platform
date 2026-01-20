@@ -2,6 +2,7 @@
 
 This repository demonstrates a **complete production-grade system design** where **AWS infrastructure is provisioned using Terraform** and multiple applications run together on **Kubernetes (AWS EKS)**.
 
+
 ### Applications supported:
 - ✅ Laravel (PHP backend)
 - ✅ Django (Python backend)
