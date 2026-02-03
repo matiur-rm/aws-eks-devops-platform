@@ -78,18 +78,16 @@ data "aws_eks_cluster_auth" "this" {
 }
 
 provider "kubernetes" {
-  host                   = module.eks.cluster_endpoint
-  cluster_ca_certificate = base64decode(module.eks.cluster_ca_certificate)
-  token                  = data.aws_eks_cluster_auth.this.token
+  config_path = "~/.kube/config"
 }
 
+
 provider "helm" {
-  kubernetes {
-    host                   = module.eks.cluster_endpoint
-    cluster_ca_certificate = base64decode(module.eks.cluster_ca_certificate)
-    token                  = data.aws_eks_cluster_auth.this.token
+  kubernetes = {
+    config_path = "~/.kube/config"
   }
 }
+
 
 # -----------------------
 # 4) ECR
